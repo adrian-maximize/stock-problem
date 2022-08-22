@@ -1,0 +1,11 @@
+{
+    "title": "Glass",
+    "object": {
+        "quant": "8",
+        "cut": "3"
+    },
+    "item": {
+        "quant": "3", 
+        "cut": "17"
+    }
+}
