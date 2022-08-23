@@ -8,4 +8,4 @@ tenha desperdício de material.
 - Os cortes de menores em cm são para os itens e os maiores em metros são para objetos
 
 # INSTRUÇÕES
-<code> node main.js </code>
+<code>node main.js</code>
