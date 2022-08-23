@@ -1,30 +1,53 @@
 const fs = require('fs');
 
 class Main {
-    constructor(width, length, title, terminal_arg) {
+    constructor(width, length, title, input_arg) {
         this._width = width
         this._length = length
         this._title = title
-        this._terminal_arg = terminal_arg
+        this._input_arg = input_arg
     };
 
-    terminal_read(length, terminal_arg) {
+    input_read(length, input_arg) {
         console.log(length)
-        terminal_arg.forEach(function terminal_arg(input, index) {
+        input_arg.forEach(function input_arg(input, index) {
             console.log(index + ": " + input)
         });
+        const material_cut = new Material_cut(length, input_arg);
+        material_cut.object_cut(material_cut._length, material_cut._input_arg)
     };
+};
 
-    cut(title) {
-        console.log(title)
 
+class Material_cut {
+    constructor(width, length, title, input_arg) {
+        this._width = width
+        this._length = length
+        this._title = title
+        this._input_arg = input_arg
+    }
+
+    object_cut() {
+        const fs=require('fs');
+        fs.readFile('./config/glass.json','utf-8',(err,jsonString)=>{
+            if(err){
+                console.log(err);
+            
+            } else {
+                try {
+                    let jsonData = JSON.parse(jsonString)
+                    console.log(jsonData);
+                } catch(err) {
+                    console.log(err);
+                };
+            };
+        });
     };
 };
 
 let x = 10;
 let y = 20;
-let terminal_arg = process.argv
+let input_arg = process.argv
 let string = "AHHHH"
-const main = new Main(x, y, string, terminal_arg);
-main.cut(main._title)
-main.terminal_read(main._length, main._terminal_arg)
+const main = new Main(x, y, string, input_arg);
+main.input_read(main._length, main._input_arg)
