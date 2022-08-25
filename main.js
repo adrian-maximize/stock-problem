@@ -1,35 +1,13 @@
 const fs = require('fs');
 
 class Main {
-    constructor(width, length, title, input_arg) {
-        this._width = width
-        this._length = length
-        this._title = title
-        this._input_arg = input_arg
+    constructor(data) {
+        this._input_config_name = input_config_name;
     };
 
-    input_read(length, input_arg) {
-        console.log(length)
-        input_arg.forEach(function input_arg(input, index) {
-            console.log(index + ": " + input)
-        });
-        const material_cut = new Material_cut(length, input_arg);
-        material_cut.object_cut(material_cut._length, material_cut._input_arg)
-    };
-};
-
-
-class Material_cut {
-    constructor(width, length, title, input_arg) {
-        this._width = width
-        this._length = length
-        this._title = title
-        this._input_arg = input_arg
-    }
-
-    object_cut() {
-        const fs=require('fs');
-        fs.readFile('./config/glass.json','utf-8',(err,jsonString)=>{
+    input_read(input_config_name) {
+        console.log(input_config_name)
+        fs.readFile(`./config/${input_config_name}.json`,'utf-8',(err,jsonString)=>{
             if(err){
                 console.log(err);
             
@@ -37,6 +15,9 @@ class Material_cut {
                 try {
                     let jsonData = JSON.parse(jsonString)
                     console.log(jsonData);
+                    
+                    const material_cut = new Material_cut(input_config_name, jsonData);
+                    material_cut.object_cut(material_cut._input_config_name ,material_cut._jsonData)
                 } catch(err) {
                     console.log(err);
                 };
@@ -45,9 +26,20 @@ class Material_cut {
     };
 };
 
-let x = 10;
-let y = 20;
+
+class Material_cut {
+    constructor(input_config_name, jsonData) {
+       this._input_config_name = input_config_name;
+       this._jsonData = jsonData;
+    }
+
+    object_cut(input_config_name, jsonData) {
+        console.log(input_config_name + "\n" + jsonData)
+    };
+};
+
+
 let input_arg = process.argv
-let string = "AHHHH"
-const main = new Main(x, y, string, input_arg);
-main.input_read(main._length, main._input_arg)
+let input_config_name = input_arg[2]
+const main = new Main(input_config_name);
+main.input_read(main._input_config_name)
