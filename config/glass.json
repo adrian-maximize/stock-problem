@@ -1,11 +1,13 @@
 {
     "title": "Glass",
-    "object": {
-        "quant": 8,
-        "cut": 300
-    },
+    "object": [
+        {"size": 0.1, "count": 10},
+        {"size": 0.5, "count": 17},
+        {"size": 0.3, "count": 10}
+    ],
     "item": {
         "quant": 3, 
         "cut": 17
     }
 }
+

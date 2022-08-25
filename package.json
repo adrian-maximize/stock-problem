@@ -1,0 +1,6 @@
+{
+    "dependencies": {
+        "stock-cutting": "^1.2.0",
+        "type": "module"
+    }
+}
