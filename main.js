@@ -6,7 +6,6 @@ class Main {
     };
 
     input_read(input_config_name) {
-        console.log(input_config_name)
         fs.readFile(`./config/${input_config_name}.json`,'utf-8',(err,jsonString)=>{
             if(err){
                 console.log(err);
@@ -14,7 +13,7 @@ class Main {
             } else {
                 try {
                     let jsonData = JSON.parse(jsonString)
-                    console.log(jsonData);
+    
                     
                     const material_cut = new Material_cut(input_config_name, jsonData);
                     material_cut.object_cut(material_cut._input_config_name ,material_cut._jsonData)
@@ -34,12 +33,15 @@ class Material_cut {
     }
 
     object_cut(input_config_name, jsonData) {
-        console.log(input_config_name + "\n" + jsonData)
+        console.log(jsonData.object.cut)
+        let object_cut = jsonData.object.quant*jsonData.object.cut
+        console.log(object_cut) 
+
     };
 };
 
 
 let input_arg = process.argv
-let input_config_name = input_arg[2]
+let input_config_name = input_arg[2].toLowerCase()
 const main = new Main(input_config_name);
 main.input_read(main._input_config_name)
