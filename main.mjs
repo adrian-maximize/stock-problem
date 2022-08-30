@@ -28,21 +28,22 @@ class Main {
 
 
 class Material_cut {
-    constructor(input_config_name, jsonData, stock_cutting) {
+    constructor(input_config_name, jsonData, stock_cutting, count) {
        this._input_config_name = input_config_name;
        this._jsonData = jsonData;
        this._stock_cutting = stock_cutting;
+       this._count = count;
     }
 
     
-    cutting(input_config_name, jsonData, stock_cutting) {
-
+    cutting(input_config_name, jsonData, stock_cutting, count) {
+        count = 0;
         const bladeSize = 0
-        const stockSizes = [{ size: 1, cost: 0 }]
+        const stockSizes = [{ size: 250, cost: 3 }]
         const input1 = [
             { size: 0.1, count: 10 },
             { size: 0.5, count: 17 },
-            { size: 0.3, count: 10 }
+            { size: 10, count: 10 }
         ]
         
         stock_cutting = howToCutBoards1D({
@@ -52,11 +53,15 @@ class Material_cut {
         });
 
         const initialValue = 0;
-        const sumWithInitial = stock_cutting[0].cuts.reduce(
-            (previousValue, currentValue) => previousValue + currentValue,
-            initialValue
-        );
-        console.log(sumWithInitial)
+        stock_cutting.forEach(element => {
+            const sumWithInitial = element.cuts.reduce(
+                (previousValue, currentValue) => previousValue + currentValue,
+                initialValue
+            );
+            console.log(element);
+            console.log(sumWithInitial);
+        });
+
     };
 };
 
