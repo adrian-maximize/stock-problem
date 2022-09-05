@@ -1,4 +1,5 @@
-# TASK - Problema de Estoque
+# Dependecies
+
 
 ## Algoritmo deve solucionar problema de estoque envolvendo o desperdicio de materiais nos cortes deles como em vidro, metal e plastico.
 

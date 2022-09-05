@@ -1,6 +1,21 @@
 {
     "dependencies": {
-        "stock-cutting": "^1.2.0",
-        "type": "module"
+        "@babel/cli": "^7.18.10",
+        "@babel/core": "^7.18.13",
+        "@babel/preset-env": "^7.18.10",
+        "@babel/register": "^7.18.9"
+    },
+    "scripts": {
+        "dev": "babel main.js -d dist"
+    },
+    "name": "stock-problem",
+    "version": "1.0.0",
+    "main": "main.js",
+    "repository": "git@github.com:adrian-maximize/stock-problem.git",
+    "author": "Adrian Vinicius Roma Alves <adrian@maximize.art.br>",
+    "license": "MIT",
+    "type": "module",
+    "devDependencies": {
+        "electron": "^20.1.1"
     }
 }
