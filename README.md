@@ -35,4 +35,4 @@
 
 # INSTRUCTIONS
 <code>yarn install</code> ou <code>npm install</code>
-<code>node main.js glass<code>
+<p><code>node main.js glass<code></p>
