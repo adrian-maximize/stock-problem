@@ -1,6 +1,12 @@
 {
     "dependencies": {
-        "stock-cutting": "^1.2.0",
-        "type": "module"
-    }
+        "stock-cutting": "^1.2.0"
+    },
+    "type": "module",
+    "name": "stock-problem",
+    "version": "1.0.0",
+    "main": "main.js",
+    "repository": "git@github.com:adrian-maximize/stock-problem.git",
+    "author": "Adrian Vinicius Roma Alves <adrian@maximize.art.br>",
+    "license": "MIT"
 }
